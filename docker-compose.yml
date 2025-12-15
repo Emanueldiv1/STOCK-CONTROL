@@ -1,0 +1,17 @@
+services:
+  postgres:
+    image: postgres:latest
+    container_name: STOCK-CONTROL
+    environment:
+      POSTGRES_DB: stockcontrol
+      POSTGRES_USER: ${DATABASE_USERNAME_POSTGRESQL}
+      POSTGRES_PASSWORD: ${DATABASE_PASSWORD_POSTGRESQL}
+    ports:
+      - "5432:5432"
+    restart: always
+    volumes:
+      - stockcontrol_data:/var/lib/postgresql/data
+
+volumes:
+  stockcontrol_data:
+
